@@ -513,26 +513,26 @@ $C^1$ гладкая и диагонально вогнута в области 
     Проверим $D$-вогнутость функции $VV^epsilon$, структура которой описана в теореме 11. В силу теоремы 9 функция $VV^epsilon$ $D$-вогнута во всех вертикальных ёлочках. Остается проверить только значения $m^prime_R = m^prime_L$ в крайних точках. 
     Легко видеть, что в $VV^epsilon$ вертикальные ёлочки и ромбы чередуются. Пусть вертикальным ёлочкам с $lambda_i$ соответствуют крайние точки $c_i = (a^i_0+b^i_0)/2$, тогда по замечанию 2 достаточно проверить выполнение условия только в точках $c_i$ и $plus.minus oo$. Рассмотрим $m_R^prime (c_i) = m_L^prime (c_i)$:
     $
-      m_R^prime (c_i) = f^prime (c_i) - m_R^(prime prime) (c_i) >= f^prime (c_i)
+      m_R^prime (c_i) = f^prime (c_i) - m_R^(prime prime) (c_i) >= f^prime (c_i).
     $
-    Обозначим $M=max f^prime (lambda_i)$, пусть функция $g=f+(M+1) x$. По теореме 13 $D$-вогнутость функций $VV_f$ и $VV_g$ эквивалентны, значит можем считать $f=g$. Легко видеть, что $g$ удволетворяет всем условиям теоремы, а также $g^prime (lambda_i)>0$. Так как расстояние между $c_i$ и $lambda_i$ линейно зависит от $epsilon$, можем считать что $epsilon$ достаточно мало, что $f^prime (c_i)>0$.\
+    Обозначим $M=max f^prime (lambda_i)$, пусть функция $g=f+(M+1) x$. По теореме 13 $D$-вогнутость функций $VV_f$ и $VV_g$ эквивалентна, значит можем считать $f=g$. Легко видеть, что $g$ удволетворяет всем условиям теоремы, а также $g^prime (lambda_i)>0$. Так как расстояние между $c_i$ и $lambda_i$ линейно зависит от $epsilon$, можем считать $epsilon$ достаточно малым, для того чтобы $f^prime (c_i)>0$.\
 
     Заметим, что $m_R$ и $m_L$ можно записать следующим образом (как решения соответствующих дифференциальных уравнений):
     $
-        m_R (u) = e^(v_1-u)m_R (v_1) + e^(-u) integral_(v_1)^u e^t f^prime (t) d t, space u in [v_1,v_2]\
-        m_L (u) = e^(u-v_2)m_R (v_2) + e^u integral_u^v_2 e^(-t) f^prime (t) d t, space u in [v_1,v_2]
+        m_R (u) = e^(v_1-u)m_R (v_1) + e^(-u) integral_(v_1)^u e^t f^prime (t) d t, space u in [v_1,v_2],\
+        m_L (u) = e^(u-v_2)m_R (v_2) + e^u integral_u^v_2 e^(-t) f^prime (t) d t, space u in [v_1,v_2].
     $
     И соответственно через интегрирование по частям:
     $
-        m_R^prime (u) = e^(v_1-u)m_R^prime (v_1) + e^(-u) integral_(v_1)^u e^t f^(prime prime) (t) d t\
-        m_L^prime (u) = e^(u-v_2)m_R^prime (v_2) + e^(u) integral_u^v_2 e^(-t) f^(prime prime) (t) d t
+        m_R^prime (u) = e^(v_1-u)m_R^prime (v_1) + e^(-u) integral_(v_1)^u e^t f^(prime prime) (t) d t,\
+        m_L^prime (u) = e^(u-v_2)m_R^prime (v_2) + e^(u) integral_u^v_2 e^(-t) f^(prime prime) (t) d t.
     $
     Рассматривая $m_L$ в $[-oo,v_2]$ и $m_R$ в $[v_1,+oo]$ можно понять, что:
     $
       lim_(u-->+oo) m_R^prime (u) = lim_(u-->+oo) e^(-u) integral_(v_1)^u e^t f^(prime prime) (t) d t >=0,\
       lim_(u-->-oo) m_L^prime (u) = lim_(u-->-oo) e^(u) integral_(u)^v_2 e^(-t) f^(prime prime) (t) d t>=0
     $
-    по выпуклости $f$. Таким образом проверили знак $m_R^prime = m_L^prime$ на всех крайних точках.
+    по выпуклости $f$. Таким образом проверили знак $m_R^prime = m_L^prime$ во всех крайних точках.
 ]
 
 #align(center,  canvas({
