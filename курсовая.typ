@@ -15,6 +15,8 @@
 
 #set text(12pt)
 
+#show selector(<nonumber>): set heading(numbering: none)
+
 #show: great-theorems-init
 
 #let theoremCounter = counter("theorem")
@@ -80,7 +82,7 @@
     #image("spbu-logo.png", width: 30%)
     #v(1.5em)
     #text(18pt)[Отчет о практике на тему]\
-    #text(16pt)[О совпадении функций Буркхольдера в локальном случае.]\
+    #text(16pt)[О совпадении функций Буркхольдера в узкой полосе.]\
     #v(3em)
     Выполнил студент 2 курса бакалавриата\
     группа 24Б01-мкн\
@@ -88,7 +90,7 @@
     #v(3em)
     Научный руководитель:\
      Новиков Михаил Игоревич\
-    Инженер-исследователь ММИ им. Л. Эйлера
+    Инженер-исследователь СПБГУ
 ]
 #align(center + bottom)[
     Санкт-Петербург\ 2026
@@ -101,7 +103,7 @@
 #pagebreak()
 
 = Введение.
-    В данной работе представлено изучение вопроса, поставленного в разделе 7.4 [2]: совпадение минимальной бивогнутой и кривовогнутой функций Буркхольдера. В качестве продвижения удалось получить достаточное условие совпадения функций Буркхолдера в достаточно малой полосе.
+    В данной работе представлено изучение вопроса, поставленного в разделе 7.4 [2]: совпадение двух типов функций Буркхольдера. В качестве продвижения удалось получить достаточное условие совпадения функций Буркхолдера в достаточно узкой полосе (см. теорему 1).
 
 = Определения и формулировка основного результата.
 
@@ -121,8 +123,8 @@
 #definition[
     Введём множество $Sigma^epsilon = {(x,y) in RR^2 |  |y|<=epsilon}$ и для функции $f:RR->RR$ определим функции Буркхольдера:
     $
-      UU^epsilon (x,y) = inf{G(x,y) | G:Sigma^epsilon --> RR - "вогнутая вдоль "(beta,1), space beta in [-1,1], "а также" space G eq.triple f, "при" space y = plus.minus epsilon}\
-      VV^epsilon (x,y) = inf{F(x,y) | F:Sigma^epsilon --> RR - "вогнутая вдоль "(beta,1), space beta in {-1,1}, "а также" space F eq.triple f, "при" space y = plus.minus epsilon}
+      UU^epsilon (x,y) = inf{G(x,y) | G:Sigma^epsilon --> RR - "вогнутая вдоль "(beta,1), space beta in [-1,1], "а также" space G eq.triple f, "при" space y = plus.minus epsilon};\
+      VV^epsilon (x,y) = inf{F(x,y) | F:Sigma^epsilon --> RR - "вогнутая вдоль "(beta,1), space beta in {-1,1}, "а также" space F eq.triple f, "при" space y = plus.minus epsilon}.
     $
     Также будем называть эти функции минимальной диагонально вогнутой и $D$-вогнутой функциями $f$ соответственно.\
     В дальнейших построениях для удобства будем рассматривать $Sigma = Sigma^1, space UU = UU^1, space VV = VV^1$.
@@ -153,6 +155,8 @@
 = Вспомогательные результаты.
 
 #v(1cm)
+
+В этом разделе мы найдём условия $D$-вогнутости минимальной диагонально вогнутой функции $VV$ в подоблостях, где она имеет струкутуру вертикальной, горизонтальной ёлочки или ромба.
 
 == Горизонтальная ёлочка.
 
@@ -190,7 +194,7 @@ $
 #proof[
     Так как $V_R$ - гладкая при $y<0$, вычислим вторую производную по направлению $(beta,1)$ в этой области (по симметричности проверки вогнутости в такой области будет достаточно):
     $
-    (partial^2 V_R)/(partial(beta,1)^2) = beta^2 (m_R^(prime prime) (v_R) (-y-1) + f^(prime prime) (v_R)) + 2beta(m_R^(prime prime)(v_R)(-y-1)-m_R^prime (v_R)+ f^(prime prime)(v_R)) + \ + m_R^(prime prime) (v_R) (-y-1) - 2m_R^prime (v_R) + f^(prime prime) (v_R) = \ = -(beta+1)^2y m_R^(prime prime) (v_R) + (beta+1)^2(f^(prime prime) (v_R) - m^(prime prime) (v_R)) - 2 (beta + 1)m^(prime) (v_R) = \ = (beta+1)(-(beta+1)y m_R^(prime prime) (v_R) + (beta-1)m_R^prime (v_R))
+    (partial^2 V_R)/(partial(beta,1)^2) = beta^2 (m_R^(prime prime) (v_R) (-y-1) + f^(prime prime) (v_R)) + 2beta(m_R^(prime prime)(v_R)(-y-1)-m_R^prime (v_R)+ f^(prime prime)(v_R)) + \ + m_R^(prime prime) (v_R) (-y-1) - 2m_R^prime (v_R) + f^(prime prime) (v_R) = \ = -(beta+1)^2y m_R^(prime prime) (v_R) + (beta+1)^2(f^(prime prime) (v_R) - m^(prime prime) (v_R)) - 2 (beta + 1)m^(prime) (v_R) = \ = (beta+1)(-(beta+1)y m_R^(prime prime) (v_R) + (beta-1)m_R^prime (v_R)).
     $
     Заметим, что если сократить на $beta+1>=0$, то функция примет линейный вид от $beta$, а значит достаточно проверить ее значения на концах. \
     При $beta = 1$ имеем 
@@ -272,7 +276,7 @@ $
     + выполнено уравнение баланса: $m_R (omega)+m_L (omega) = 2 f^prime (omega)$.
     Тогда функция $V$:
     $
-      V (v) = cases(V_R (v)";" space v in Sigma_R [v_1,omega]",", V_omega (v)";" space v in Sigma_omega",", V_L (v)";" space v in Sigma_L [omega,v_2].)
+      V (v) = cases(V_R (v)";" space v in Sigma_R [v_1,omega]",", V_omega (v)";" space v in Sigma_omega",", V_L (v)";" space v in Sigma_L [omega,v_2])
     $ 
     диагонально вогнута.
 ]
@@ -383,7 +387,7 @@ $
 
 #theorem[(Теорема 4.2.1 из [2]) Если для функции $f$ существуют функции $a,b,a_0,b_0,A$, которые мы описали выше, то функция $V$, заданная формулой 
 $
-  V (v)= cases(V_L (v)";" space v in Sigma_L [v_1,a_0]",", V_(h r b) (v)";" space v in Sigma_(h r b)",", V_R (v)";" space v in Sigma_R [b_0,v_2].) 
+  V (v)= cases(V_L (v)";" space v in Sigma_L [v_1,a_0]",", V_(h r b) (v)";" space v in Sigma_(h r b)",", V_R (v)";" space v in Sigma_R [b_0,v_2],) 
 $ 
 $C^1$ гладкая и диагонально вогнута в области определения.
 ]
@@ -504,11 +508,11 @@ $C^1$ гладкая и диагонально вогнута в области 
 #counter("theorem").update(0)
 
 #proof[ (Теоремы 1)  #h(1cm)
-    Проверим $D$-вогнутость функции $VV^epsilon$, структура которой описана в теореме 11. В силу теоремы 9 функция $VV^epsilon$ $D$-вогнута во всех вертикальных ёлочках. Остается проверить только значения $m^prime_R = m^prime_L$ в крайних точках. 
-    Легко видеть, что в $VV^epsilon$ вертикальные ёлочки и ромбы чередуются. Пусть вертикальным ёлочкам с $lambda_i$ соответствуют крайние точки $a^i_0, b^i_0$, тогда по замечанию 4 достаточно проверить выполнение условия только в точках $a^i_0, b^i_0$ и $plus.minus oo$. \
-    Фиксируем вертикальную ёлочку с $a_0,b_0$. По теореме 8 имеем гладкость вертикальной ёлочки, тогда в дополнение к условию $m_R (b_0) = m_L (a_0)$ верно и $m_R^prime (b_0) = m_L^prime (a_0)$. Также воспользуемся следующим свойством:
+    Проверим $D$-вогнутость функции $VV^epsilon$, структура которой описана в теореме 11. В силу теоремы 9 функция $VV^epsilon$ $D$-вогнута во всех вертикальных ёлочках. Остается проверить только неравенство $m^prime_R = m^prime_L>=0$ в крайних точках. 
+    Легко видеть, что у функции $VV^epsilon$ вертикальные ёлочки и ромбы чередуются. Пусть вертикальным ёлочкам начинающимся в точках $(lambda_i,-epsilon)$ соответствуют крайние точки $a^i_0, b^i_0$, тогда по замечанию 4 достаточно проверить выполнение условия только в точках $a^i_0, b^i_0$ и $plus.minus oo$. \
+    Зафиксируем вертикальную ёлочку с параметрами $a_0,b_0$. По теореме 8 имеем гладкость вертикальной ёлочки, тогда в дополнение к условию $m_R (b_0) = m_L (a_0)$ верно равенство $m_R^prime (b_0) = m_L^prime (a_0)$. Также воспользуемся следующим свойством:
     $
-      f^(prime prime) (b) - (f^prime (b)-f^prime (a))/(b-a) <0; space f^prime (b)-f^prime (a)>(b-a)f^(prime prime) (b).
+      D_R = f^(prime prime) (b) - (f^prime (b)-f^prime (a))/(b-a) <0; space f^prime (b)-f^prime (a)>(b-a)f^(prime prime) (b).
     $
     Выпишем оценку:
     $
@@ -517,19 +521,19 @@ $C^1$ гладкая и диагонально вогнута в области 
     Теперь перейдём к крайним точкам $plus.minus oo$. Заметим, что $m_R$ и $m_L$ можно записать следующим образом (как решения соответствующих дифференциальных уравнений):
     $
         m_R (u) = e^(v_1-u)m_R (v_1) + e^(-u) integral_(v_1)^u e^t f^prime (t) d t, space u in [v_1,v_2],\
-        m_L (u) = e^(u-v_2)m_R (v_2) + e^u integral_u^v_2 e^(-t) f^prime (t) d t, space u in [v_1,v_2].
+        m_L (u) = e^(u-v_2)m_L (v_2) + e^u integral_u^v_2 e^(-t) f^prime (t) d t, space u in [v_1,v_2].
     $
-    И соответственно через интегрирование по частям:
+    где $-oo<v_1<v_2<+oo$. И соответственно через интегрирование по частям:
     $
         m_R^prime (u) = e^(v_1-u)m_R^prime (v_1) + e^(-u) integral_(v_1)^u e^t f^(prime prime) (t) d t,\
-        m_L^prime (u) = e^(u-v_2)m_R^prime (v_2) + e^(u) integral_u^v_2 e^(-t) f^(prime prime) (t) d t.
+        m_L^prime (u) = e^(u-v_2)m_L^prime (v_2) + e^(u) integral_u^v_2 e^(-t) f^(prime prime) (t) d t.
     $
     Рассматривая $m_L$ в $[-oo,v_2]$ и $m_R$ в $[v_1,+oo]$ можно понять, что:
     $
       lim_(u-->+oo) m_R^prime (u) = lim_(u-->+oo) e^(-u) integral_(v_1)^u e^t f^(prime prime) (t) d t >=0,\
       lim_(u-->-oo) m_L^prime (u) = lim_(u-->-oo) e^(u) integral_(u)^v_2 e^(-t) f^(prime prime) (t) d t>=0
     $
-    по выпуклости $f$. Таким образом проверили знак $m_R^prime = m_L^prime$ во всех крайних точках.
+    по выпуклости $f$. Таким образом, проверили знак $m_R^prime = m_L^prime$ во всех крайних точках.
 ]
 
 #align(center,  canvas({
@@ -575,7 +579,7 @@ $C^1$ гладкая и диагонально вогнута в области 
 
 #v(4cm)
 
-= Список литературы.
+= Список литературы. <nonumber>
 [1] Paata Ivanisvili, Dmitriy M. Stolyarov, Vasily I. Vasyunin, Pavel B. Zatitskiy, #emph("Bellman Function for Extremal
 Problems in BMO II: Evolution"), September 2018\
 [2] Dmitriy Stolyarov, Vasily Vasyunin, Pavel Zatitskii, #emph("Martingale transforms of bounded random variables and indicator functions of events"), October 5, 2023
